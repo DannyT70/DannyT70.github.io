@@ -148,6 +148,159 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/12/01/%E9%80%92%E5%BD%92%E3%80%81%E6%8E%92%E5%BA%8F%E3%80%81%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="T70的个人博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="T70's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/12/01/%E9%80%92%E5%BD%92%E3%80%81%E6%8E%92%E5%BA%8F%E3%80%81%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" class="post-title-link" itemprop="url">递归、排序、二分查找</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-12-01 12:49:17" itemprop="dateCreated datePublished" datetime="2022-12-01T12:49:17+08:00">2022-12-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-12-02 09:50:15" itemprop="dateModified" datetime="2022-12-02T09:50:15+08:00">2022-12-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2022/12/01/%E9%80%92%E5%BD%92%E3%80%81%E6%8E%92%E5%BA%8F%E3%80%81%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" class="post-meta-item leancloud_visitors" data-flag-title="递归、排序、二分查找" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2022/12/01/%E9%80%92%E5%BD%92%E3%80%81%E6%8E%92%E5%BA%8F%E3%80%81%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/12/01/%E9%80%92%E5%BD%92%E3%80%81%E6%8E%92%E5%BA%8F%E3%80%81%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><em><strong>尾递归</strong></em>：<br>　　一般只有递归出现在函数中的最后一行，并且没有任何局部变量参与最后一行代码的计算，这样的递归代码才可以改写为尾递归。<font color=yellow>(返回之后不需要继续往下执行，局部变量n也被移动到新的函数中)</font>例如阶乘递归代码:<br>　int f(int n, int res){<br>　　if (n &lt;&#x3D; 1) return res;<br>　　retrun f(n - 1, n*res);<br>　}<br>　　实际软件开发中，尾递归并没有太大作用，理由如下：  </p>
+<ul>
+<li>并不是所有编程语言都支持尾递归优化</li>
+<li>并不是所有递归都能改成尾递归</li>
+<li>能改成尾递归的代码都可以改成迭代</li>
+<li>尾递归代码的可读性很差</li>
+</ul>
+<p><em><strong>排序</strong></em>：<br><strong>排序算法的执行效率</strong><br>排序算法的执行效率一般会从以下几个方面分析：  </p>
+<ol>
+<li>最好、最坏和平均时间复杂度（综合分析）  </li>
+<li>时间复杂度的系数、常数和低阶（对于n比较小的情况）  </li>
+<li>比较次数和交换（或移动）次数（需要精细化分析的时候）</li>
+</ol>
+<p><strong>排序算法的内存消耗</strong><br>　原地排序算法：在原数据存储空间上完成排序操作。<br>　非原地排序算法：需要额外的非常量级的数据存储空间才能完成排序。<br><strong>排序算法的稳定性</strong><br>　对于待排序的数据（复杂的数据类型对象）中存在值相等的元素：  </p>
+<ul>
+<li>稳定排序算法：相等元素之间原有的先后顺序不变  </li>
+<li>不稳定排序算法：相等元素之间原有的先后顺序可能会改变</li>
+</ul>
+<p><strong>排序算法分类</strong>  </p>
+<table>
+<thead>
+<tr>
+<th align="center">时间复杂度</th>
+<th align="center">排序算法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">$O(n^2)$</td>
+<td align="center">冒泡排序、插入排序、选择排序</td>
+</tr>
+<tr>
+<td align="center">$O(nlogn)$</td>
+<td align="center">快速排序、归并排序</td>
+</tr>
+<tr>
+<td align="center">$O(n)$</td>
+<td align="center">桶排序、计数排序、基数排序</td>
+</tr>
+</tbody></table>
+<p><em><strong>一．$O(n^2)$排序</strong></em>(适合小规模数据)　　</p>
+<p><strong>冒泡排序</strong>  </p>
+<ol>
+<li>原地排序算法,空间复杂度为$O(1)$</li>
+<li>稳定排序算法</li>
+<li>时间复杂度:最好时间复杂度为$O(n)$,最坏时间复杂度为$O(n^2)$,平均时间复杂度为$O(n^2)$(交换次数&#x3D;满有序度-初始有序度,平均交换次数为n(n-1)&#x2F;4)</li>
+</ol>
+<p><strong>插入排序</strong>  </p>
+<ol>
+<li>原地排序算法,空间复杂度为$O(1)$</li>
+<li>稳定排序算法</li>
+<li>时间复杂度:最好时间复杂度为$O(n)$,最坏时间复杂度为$O(n^2)$,平均时间复杂度为$O(n^2)$</li>
+</ol>
+<p><strong>选择排序</strong></p>
+<ol>
+<li>原地排序算法,空间复杂度为$O(1)$</li>
+<li>不稳定排序算法</li>
+<li>时间复杂度:均为$O(n^2)$</li>
+</ol>
+<p><em><strong>总结</strong></em><br>　　虽然插入排序和冒泡排序的时间复杂度相同,但是冒泡排序的数据交换操作需要3个赋值语句,而插入排序只需要1个,而两者需要元素交换的总次数相同。<font color=yellow>因此插入排序要比冒泡排序快。</font><br><em><strong>二．$O(nlogn)$排序</strong></em>(适合大规模数据)　　<br><strong>归并排序</strong>  </p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/01/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -301,9 +454,17 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">posts</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">tags</span>
       </div>
   </nav>
 </div>
