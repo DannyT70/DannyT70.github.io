@@ -179,7 +179,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-12-02 09:50:15" itemprop="dateModified" datetime="2022-12-02T09:50:15+08:00">2022-12-02</time>
+                <time title="Modified: 2022-12-02 09:58:26" itemprop="dateModified" datetime="2022-12-02T09:58:26+08:00">2022-12-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -223,7 +223,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><em><strong>尾递归</strong></em>：<br>　　一般只有递归出现在函数中的最后一行，并且没有任何局部变量参与最后一行代码的计算，这样的递归代码才可以改写为尾递归。<font color=yellow>(返回之后不需要继续往下执行，局部变量n也被移动到新的函数中)</font>例如阶乘递归代码:<br>　int f(int n, int res){<br>　　if (n &lt;&#x3D; 1) return res;<br>　　retrun f(n - 1, n*res);<br>　}<br>　　实际软件开发中，尾递归并没有太大作用，理由如下：  </p>
+          <p><em><strong>尾递归</strong></em>：<br>　　一般只有递归出现在函数中的最后一行，并且没有任何局部变量参与最后一行代码的计算，这样的递归代码才可以改写为尾递归。<font color=blue>(返回之后不需要继续往下执行，局部变量n也被移动到新的函数中)</font>例如阶乘递归代码:<br>　int f(int n, int res){<br>　　if (n &lt;&#x3D; 1) return res;<br>　　retrun f(n - 1, n*res);<br>　}<br>　　实际软件开发中，尾递归并没有太大作用，理由如下：  </p>
 <ul>
 <li>并不是所有编程语言都支持尾递归优化</li>
 <li>并不是所有递归都能改成尾递归</li>
@@ -277,11 +277,11 @@
 </ol>
 <p><strong>选择排序</strong></p>
 <ol>
-<li>原地排序算法,空间复杂度为$O(1)$</li>
+<li>原地排序算法,空间复杂度为$$O(1)$$</li>
 <li>不稳定排序算法</li>
-<li>时间复杂度:均为$O(n^2)$</li>
+<li>时间复杂度:均为$$O(n^2)$$</li>
 </ol>
-<p><em><strong>总结</strong></em><br>　　虽然插入排序和冒泡排序的时间复杂度相同,但是冒泡排序的数据交换操作需要3个赋值语句,而插入排序只需要1个,而两者需要元素交换的总次数相同。<font color=yellow>因此插入排序要比冒泡排序快。</font><br><em><strong>二．$O(nlogn)$排序</strong></em>(适合大规模数据)　　<br><strong>归并排序</strong>  </p>
+<p><em><strong>总结</strong></em><br>　　虽然插入排序和冒泡排序的时间复杂度相同,但是冒泡排序的数据交换操作需要3个赋值语句,而插入排序只需要1个,而两者需要元素交换的总次数相同。<font color=blue>因此插入排序要比冒泡排序快。</font><br><em><strong>二．$O(nlogn)$排序</strong></em>(适合大规模数据)　　<br><strong>归并排序</strong>  </p>
 
       
     </div>
