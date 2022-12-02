@@ -179,7 +179,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-12-02 10:10:38" itemprop="dateModified" datetime="2022-12-02T10:10:38+08:00">2022-12-02</time>
+                <time title="Modified: 2022-12-02 13:30:29" itemprop="dateModified" datetime="2022-12-02T13:30:29+08:00">2022-12-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -241,7 +241,31 @@
 <li>稳定排序算法：相等元素之间原有的先后顺序不变  </li>
 <li>不稳定排序算法：相等元素之间原有的先后顺序可能会改变 </li>
 </ul>
-<p><strong>排序算法分类</strong><br>|时间复杂度|排序算法|<br>|:———-:|:——-:|<br>|$O(n^2)$  |冒泡排序、插入排序、选择排序|<br>|$O(nlogn)$|快速排序、归并排序|<br>|$O(n)$    |桶排序、计数排序、基数排序|</p>
+<p><strong>排序算法分类</strong>  </p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">时间复杂度</th>
+<th style="text-align:center">排序算法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$ O(n^2) $</td>
+<td style="text-align:center">冒泡排序、插入排序、选择排序</td>
+</tr>
+<tr>
+<td style="text-align:center">$ O(nlogn) $</td>
+<td style="text-align:center">快速排序、归并排序</td>
+</tr>
+<tr>
+<td style="text-align:center">$ O(n) $</td>
+<td style="text-align:center">桶排序、计数排序、基数排序</td>
+</tr>
+</tbody>
+</table>
+</div>
 <p><strong><em>一．$O(n^2)$排序</em></strong>(适合小规模数据)　　</p>
 <p><strong>冒泡排序</strong>  </p>
 <ol>
@@ -535,7 +559,6 @@
   if (typeof MathJax === 'undefined') {
     window.MathJax = {
       loader: {
-          load: ['[tex]/mhchem'],
         source: {
           '[tex]/amsCd': '[tex]/amscd',
           '[tex]/AMScd': '[tex]/amscd'
@@ -543,7 +566,6 @@
       },
       tex: {
         inlineMath: {'[+]': [['$', '$']]},
-          packages: {'[+]': ['mhchem']},
         tags: 'ams'
       },
       options: {
